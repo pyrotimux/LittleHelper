@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+   lhdb:
+     image: mysql:5.7.21
+     volumes:
+       - ./lhdb:/var/lib/mysql
+       - ./web_app/app/mysqlinit:/docker-entrypoint-initdb.d
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: placeholdersqlsecret
+
+   lhapp:
+     depends_on:
+       - lhdb
+     build: ./web_app
+     volumes:
+       - ./web_app/app/:/app
+     ports:
+       - "80:80"
+       - "443:443"
+     restart: always
+     environment:
+      TZ: America/Los_Angeles
+     links:
+      - lhdb
