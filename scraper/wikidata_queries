@@ -1,0 +1,16 @@
+SELECT DISTINCT ?seriesLabel ?seriesDescription WHERE {
+  ?series wdt:P31 wd:Q5398426.
+  ?series wdt:P577 ?pubdate.
+  FILTER((?pubdate >= "2010-01-01T00:00:00Z"^^xsd:dateTime) && (?pubdate <= "2018-12-31T00:00:00Z"^^xsd:dateTime))
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+
+
+SELECT DISTINCT ?itemLabel WHERE {
+  ?item wdt:P31 wd:Q11424.
+  ?item wdt:P577 ?pubdate.
+  FILTER((?pubdate >= "2017-01-01T00:00:00Z"^^xsd:dateTime) && (?pubdate <= "2018-12-31T00:00:00Z"^^xsd:dateTime))
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+
+
