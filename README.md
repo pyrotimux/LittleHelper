@@ -29,10 +29,10 @@ To run this project, you will need docker installed. Once project is cloned then
 
 #### Supported Request Args
 
-| Args | What it does | Endpoint |
-| ------------- | -------------| -------------|
-| ```page``` | page number to retrieve. | all
-| ```limit``` | number of items in one page. | all
-| ```query``` | title of the movie or show. | search only
+| Args | What it does | Endpoint | DependsOn |
+| ------------- | -------------| -------------| -------------|
+| ```page``` | page number to retrieve. | all | limit
+| ```limit``` | number of items in one page. | all | page
+| ```query``` | title of the movie or show. | search only | none
 
 <body id="basics"></body>
